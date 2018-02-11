@@ -16,6 +16,7 @@
     "buefy": "^0.6.3",
     "bulma-carousel": "^0.3.6",
     "bulma-timeline": "^2.0.0",
+    "express": "^4.16.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
