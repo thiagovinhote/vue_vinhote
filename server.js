@@ -4,6 +4,8 @@ const express = require('express');
 
 const app = express();
 
+app.set('port', (process.env.PORT || 8080));
+
 app.use((req, res, next) => {
   if (path.extname(req.path).length > 0) {
     next();
