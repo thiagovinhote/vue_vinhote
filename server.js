@@ -1,11 +1,27 @@
-var express = require('express');
-var path = require('path');
-var serveStatic = require('serve-static');
+const fs = require('fs');
+const path = require('path');
+const express = require('express');
 
-app = express();
+const app = express();
 
-app.use(serveStatic(__dirname + "/dist"));
+app.set('port', (process.env.PORT || 8080));
 
-var port = process.env.PORT || 5000;
-app.listen(port);
-console.log('server started '+ port);
+app.use((req, res, next) => {
+  if (path.extname(req.path).length > 0) {
+    next();
+  } else {
+    req.url = '/index.html';
+    next();
+  }
+});
+
+app.use(express.static(`${__dirname}/dist`))
+  .get('/', (req, res) => {
+    res.sendFile('index.html', {
+      root: `${__dirname}/dist`,
+    });
+  });
+
+app.listen(app.get('port'), () => {
+  console.log('Listening on port', app.get('port'));
+});
