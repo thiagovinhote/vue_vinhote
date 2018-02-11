@@ -1,4 +1,4 @@
-# mysite
+# vue_vinhote
 
 > A Vue.js project
 
