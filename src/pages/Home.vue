@@ -13,11 +13,19 @@
     </Hero>
 
     <Zone
-      color="is-light"
+      color="is-lght"
     >
       <div class="content">
         <p class="title is-4 has-text-centered">Sobre mim</p>
-        <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos.</p>
+        <ul>
+          <li>
+            Sou um desenvolvedor web e mobile, sempre se atualizando com as novas tecnologias que surgem no mercado, para melhor resolver um desafio com a solução que melhor se encaixa. Experiência de 2 anos na Apple Developer Academy com desenvolvimento especifico para iOS, watchOS e tvOS. Prática com metodologias como: Scrum, MVP e CBL. 
+          </li>
+          <li>
+            Desenvolvo para web tanto no Back-End implementado API's quanto no Front-End criando aplicações visuais.
+            No mobile, posso desenvolver tanto aplicações com código nativo com Swift(iOS) ou Java(Android) quanto com bibliotecas como o React-Native(JavaScript).
+          </li>
+        </ul>
       </div>
     </Zone>
 
@@ -36,14 +44,19 @@
     </Zone>
 
     <Zone
-      color="is-primary"
+      color="is-info"
     >
+      <div class="content">
+        <p class="title is-4 has-text-centered">Trabalhos</p>
+      </div>
       <Carousel />
     </Zone>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 import Hero from '@/components/Hero';
 import Zone from '@/components/Zone';
 import Carousel from '@/components/Carousel';
@@ -55,14 +68,10 @@ export default {
     Carousel,
   },
 
-  data() {
-    return {
-      plataforms: [
-        { title: 'Mobile', description: 'Progamação com linguagem native e com React-Native', icon: 'fa-mobile-alt' },
-        { title: 'Front-End', description: 'Usando tecnologias como AngularJS, ReactJS e VueJS', icon: 'fa-desktop' },
-        { title: 'Back-End', description: 'Node e Python no lado do back-end', icon: 'fa-code' },
-      ],
-    };
+  computed: {
+    ...mapGetters({
+      plataforms: 'GET_PLATAFORMS',
+    }),
   },
 };
 </script>

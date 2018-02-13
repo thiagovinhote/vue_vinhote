@@ -1,50 +1,72 @@
 <template>
-  <div class='carousel is-3 carousel-animated carousel-animate-slide'>
-    <div class='carousel-container'>
-      <div v-for="item of itens" class='carousel-item' :class="[item.active ? 'is-active' : '']">
+  <div>
+    <div class="columns is-multiline">
+      <div class="column is-4" v-for="item of projects">
         <div class="card">
           <div class="card-image">
             <figure class="image is-3by2">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+              <img :src="item.image" alt="Placeholder image">
             </figure>
           </div>
           <div class="card-content">
             <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-              <a href="#">#css</a> <a href="#">#responsive</a>
+              {{ item.description }}
+              <!-- <a href="#">#{{ item.name }}</a> -->
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="carousel-navigation is-overlay">
-      <div class="carousel-nav-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+  </div>
+  <!-- <div v-if="projects.length > 0">
+    <div class='carousel is-3 carousel-animated carousel-animate-slide'>
+      <div class='carousel-container'>
+        <div v-for="item of projects" class='carousel-item' :class="[item.active ? 'is-active' : '']">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-3by2">
+                <img :src="item.image" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                {{ item.description }}
+                <a href="#">#{{ item.name }}</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="carousel-nav-right">
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      <div class="carousel-navigation is-overlay">
+        <div class="carousel-nav-left">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </div>
+        <div class="carousel-nav-right">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
-  data() {
-    return {
-      itens: [
-        { image_url: 'https://bulma.io/images/placeholders/480x480.png', active: true },
-        { image_url: 'https://bulma.io/images/placeholders/480x480.png', active: false },
-        { image_url: 'https://bulma.io/images/placeholders/480x480.png', active: false },
-        { image_url: 'https://bulma.io/images/placeholders/480x480.png', active: false },
-        { image_url: 'https://bulma.io/images/placeholders/480x480.png', active: false },
-        { image_url: 'https://bulma.io/images/placeholders/480x480.png', active: false },
-        { image_url: 'https://bulma.io/images/placeholders/480x480.png', active: false },
-        { image_url: 'https://bulma.io/images/placeholders/480x480.png', active: false },
-        { image_url: 'https://bulma.io/images/placeholders/480x480.png', active: false },
-      ],
-    };
+  mounted() {
+    this.fetch();
+  },
+
+  methods: {
+    ...mapActions({
+      fetch: 'FETCH_PROJECTS',
+    }),
+  },
+
+  computed: {
+    ...mapGetters({
+      projects: 'GET_PROJECTS',
+    }),
   },
 };
 </script>

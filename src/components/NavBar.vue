@@ -12,15 +12,11 @@
         </span>
       </div>
       <div class="navbar-start">
-        <a class="navbar-item">
+        <a class="navbar-item" v-for="social of socialNetworks" :href="social.link" target="__blank">
           <span class="icon">
-            <i class="fab fa-facebook"></i>
+            <i class="fab" :class="social.icon"></i>
           </span>
         </a>
-        <a class="navbar-item">
-          <span class="icon">
-            <i class="fab fa-twitter"></i>
-          </span>
         </a>
       </div>
       <div id="navbarMenuHeroA" class="navbar-menu">
@@ -48,6 +44,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import { routes } from '@/router';
 
 export default {
@@ -55,6 +52,12 @@ export default {
     return {
       routes: routes.filter(r => r.path !== '/'),
     };
+  },
+
+  computed: {
+    ...mapGetters({
+      socialNetworks: 'GET_SOCIAL_NETWORKS',
+    }),
   },
 };
 </script>
