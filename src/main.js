@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Buefy from 'buefy';
+import linkify from 'vue-linkify';
 import 'buefy/lib/buefy.css';
 import 'bulma-carousel/dist/bulma-carousel.min.css';
 import 'bulma-carousel/dist/carousel';
@@ -12,6 +13,7 @@ import router from '@/router';
 import store from '@/store';
 
 Vue.use(Buefy);
+Vue.directive('linkified', linkify);
 
 /* eslint-disable no-new */
 new Vue({

@@ -14,15 +14,19 @@
         <div class="column">
           <div class="columns">
             <div class="column">
-              <Message>
-                Primar lorem ipsum dolor sit amet, consectetur
-                adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla.
+              <Message color="is-info">
+                <p>
+                  O <strong>conhecimento</strong> se torna mais interessante quando ele é <strong>compartilhado</strong> com as outras pessoas.
+                </p>
+                <small>@vinhote</small>
               </Message>
             </div>
             <div class="column">
               <Message>
-                Primar lorem ipsum dolor sit amet, consectetur
-                adipiscing elit lorem ipsum dolor. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla.
+                <p>
+                  Todos querem <strong>aprender</strong>, mas poucos são os que se <strong>esforçam</strong> para estudar e expandir seus <strong>horizontes</strong>.
+                </p>
+                <small>@vinhote</small>
               </Message>
             </div>
           </div>

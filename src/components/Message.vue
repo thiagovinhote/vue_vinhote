@@ -1,5 +1,5 @@
 <template>
-  <div class="notification is-link">
+  <div class="notification" :class="color">
     <button v-if="close" class="delete"></button>
     <slot />
   </div>
@@ -11,6 +11,10 @@ export default {
     close: {
       type: Boolean,
       default: false,
+    },
+    color: {
+      type: String,
+      default: 'is-primary',
     },
   },
 };

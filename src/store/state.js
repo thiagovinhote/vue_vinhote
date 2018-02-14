@@ -1,5 +1,6 @@
 export default {
-  projects: [],
+  project: [],
+  work: [],
   socialNetworks: [
     { link: 'https://www.facebook.com/vinhote.thiago', icon: 'fa-facebook' },
     { link: 'https://twitter.com/thiago_vinhote', icon: 'fa-twitter' },

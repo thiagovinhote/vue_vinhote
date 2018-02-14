@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="columns is-multiline">
-      <div class="column is-4" v-for="item of projects">
+      <div class="column is-4" v-for="item of work.results">
         <div class="card">
           <div class="card-image">
             <figure class="image is-3by2">
@@ -59,13 +59,13 @@ export default {
 
   methods: {
     ...mapActions({
-      fetch: 'FETCH_PROJECTS',
+      fetch: 'FETCH_WORK',
     }),
   },
 
   computed: {
     ...mapGetters({
-      projects: 'GET_PROJECTS',
+      work: 'GET_WORK',
     }),
   },
 };
