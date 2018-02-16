@@ -2,46 +2,65 @@
   <div>
     <Hero
       title="Perfil"
-      subtitle="Saiba mais sobre mim"
-      color="is-info"
+      subtitle="Saiba mais detalhes ao meu respeito"
+      color="is-light"
     />
 
     <Zone
-      color="is-danger"
+      color="is-default"
     >
       <div class="columns">
         <div class="column is-half">
-          <h1 class="title is-1">Sobre mim</h1>
-          <h1 class="title is-4">Eu sou um desenvolvedor</h1>
+          <h1 class="title is-4">Sobre mim</h1>
           <div class="content">
             <p class="subtitle">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+              <ul>
+                <li>
+                  Sou um desenvolvedor web e mobile, sempre se atualizando com as novas tecnologias que surgem no mercado, para resolver os desafios aplicando a tecnologia que melhor se encaixar. 
+                </li>
+                <br/>
+                <li>
+                  Experiência de 2 anos na Apple Developer Academy com desenvolvimento especifico para iOS, watchOS e tvOS. Prática com metodologias como: Scrum, MVP e CBL.
+                </li>
+                <br/>
+                <li>
+                  Desenvolvo para web tanto no Back-End implementado API's quanto no Front-End criando aplicações visuais.
+                  No mobile, posso desenvolver tanto aplicações com código nativo com Swift(iOS) ou Java(Android) quanto com bibliotecas como o React-Native(JavaScript).
+                </li>
+              </ul>
             </p>
-            <div class="content">
-              <a class="button is-dark">
-                <span class="icon">
-                  <i class="fab fa-github"></i>
-                </span>
-                <span>GitHub</span>
-              </a>
-              <a class="button is-info">
-                <span class="icon">
-                  <i class="fab fa-facebook"></i>
-                </span>
-                <span>Facebook</span>
-              </a>
-            </div>
           </div>
         </div>
         <div class="column is-offset-1 has-text-centered">
           <div class="content">
-            <img class="is-mask-circle is-250x250" src="https://scontent.fbsb1-1.fna.fbcdn.net/v/t1.0-9/13095896_933513143414062_1336776631130582505_n.jpg?oh=0e16119681af556b805bdb3b758c3640&oe=5B16B8B4">
+            <img class="is-circle is-mask-circle is-250x250" src="static/photo.png">
           </div>
         </div>
       </div>
     </Zone>
 
-    <Zone
+    <Zone>
+      <div class="columns">
+        <div class="column is-4">
+          <h1 class="title">Minhas redes sociais</h1>
+          <h2 class="subtitle">Dá uma olhada</h2>
+        </div>
+        <div class="column">
+          <div class="columns is-multiline">
+            <div v-for="(social, index) of socials" class="column is-one-quarter">
+              <a :href="social.link" target="__blank" class="button is-medium" :class="getColor(index)">
+                <span class="icon">
+                  <i class="fab" :class="social.icon"></i>
+                </span>
+                <span>{{ social.name }}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Zone>
+
+    <!-- <Zone
       color="is-dark"
     >
       <nav class="level">
@@ -70,12 +89,13 @@
           </div>
         </div>
       </nav>
-    </Zone>
+    </Zone> -->
 
     <Zone
       color="is-light"
+      size="is-medium"
     >
-      <h1 class="title">Amigos</h1>
+      <!-- <h1 class="title">Amigos</h1>
       <hr/>
       <div class="columns is-multiline is-desktop">
         <div v-for="amigo of amigos" class="column is-one-quarter">
@@ -85,17 +105,25 @@
             </h1>
           </MediaObject>
         </div>
-      </div>
+      </div> -->
     </Zone>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 import Hero from '@/components/Hero';
 import Zone from '@/components/Zone';
 import { MediaObject } from '@/components/media-object';
 
 export default {
+  components: {
+    Hero,
+    Zone,
+    MediaObject,
+  },
+
   data() {
     return {
       amigos: [
@@ -108,29 +136,29 @@ export default {
       ],
     };
   },
-  components: {
-    Hero,
-    Zone,
-    MediaObject,
+
+  methods: {
+    getColor(index) {
+      const colors = [
+        'is-primary',
+        'is-info',
+        'is-warning',
+        'is-dark',
+        'is-danger',
+        '',
+      ];
+      const position = index % colors.length;
+      return colors[position];
+    },
+  },
+
+  computed: {
+    ...mapGetters({
+      socials: 'GET_SOCIAL_NETWORKS',
+    }),
   },
 };
 </script>
 
 <style>
-  .is-circle {
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center right;
-  }
-
-  .is-250x250 {
-    height: 300px;
-    width: 300px;
-  }
-
-  .is-mask-circle {
-    /*-webkit-mask-image: radial-gradient(ellipse 90% 80% at 48% 78%, black 40%, transparent 50%);*/
-    /*circle at 50% 60%, black 50%, rgba(0, 0, 0, 0.6) 50%*/
-    mask-image: radial-gradient(circle at 51% 51%, black 64%, transparent 70%);
-  }
 </style>

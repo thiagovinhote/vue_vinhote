@@ -84,7 +84,7 @@ export default {
 
   methods: {
     ...mapActions({
-      fetch: 'FETCH_PROJECTS',
+      fetch: 'FETCH_PROJECT',
     }),
     changePagination(number) {
       this.fetch(number);
@@ -93,7 +93,7 @@ export default {
 
   computed: {
     ...mapGetters({
-      project: 'GET_PROJECTS',
+      project: 'GET_PROJECT',
     }),
   },
 };

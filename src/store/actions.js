@@ -1,13 +1,23 @@
 import api from '@/services/api';
 
 export default {
-  async 'FETCH_WORK' (context) {
-    const response = await api.get('work/');
+  async 'FETCH_WORK' (context, is_store = false) {
+    const response = await api.get(`work/?is_store=${is_store}`);
     context.commit('WORK_RECEIVE', response.data);
   },
 
-  async 'FETCH_PROJECTS' (context, page) {
+  async 'FETCH_PROJECT' (context, page) {
     const response = await api.get(`projects/?page=${page}`);
-    context.commit('PROJECTS_RECEIVE', response.data);
+    context.commit('PROJECT_RECEIVE', response.data);
+  },
+
+  async 'FETCH_EXPERIENCE' (context) {
+    const response = await api.get('experiences/');
+    context.commit('EXPERIENCE_RECEIVE', response.data);
+  },
+
+  async 'FETCH_SKILL' (context) {
+    const response = await api.get('skills');
+    context.commit('SKILL_RECEIVE', response.data);
   },
 };

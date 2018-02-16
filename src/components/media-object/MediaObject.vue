@@ -1,6 +1,6 @@
 <template>
   <article class="media">
-    <figure class="media-left">
+    <figure v-if="isimage" class="media-left">
       <p class="image" :class="imagesize">
         <img :src="imageurl">
       </p>
@@ -30,7 +30,10 @@ export default {
     },
     imageurl: {
       type: String,
-      required: true,
+    },
+    isimage: {
+      type: Boolean,
+      default: true,
     },
   },
 };

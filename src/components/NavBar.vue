@@ -1,11 +1,11 @@
 <template>
-  <nav class="navbar is-dark">
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
     <div class="container">
       <div class="navbar-brand">
         <router-link to="/" exact class="navbar-item">
           <img src="static/logo.png" alt="Portifólio logo" width="112" height="28">
         </router-link>
-        <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+        <span @click="clickMenu" class="navbar-burger burger" data-target="navbarMenuHeroA" :class="{'is-active': isMenuActive}">
           <span></span>
           <span></span>
           <span></span>
@@ -19,7 +19,7 @@
         </a>
         </a>
       </div>
-      <div id="navbarMenuHeroA" class="navbar-menu">
+      <div id="navbarMenuHeroA" class="navbar-menu" :class="{'is-active': isMenuActive}">
         <div class="navbar-end">
           <router-link
             v-bind:key="route.path"
@@ -50,8 +50,15 @@ import { routes } from '@/router';
 export default {
   data() {
     return {
+      isMenuActive: false,
       routes: routes.filter(r => r.path !== '/'),
     };
+  },
+
+  methods: {
+    clickMenu() {
+      this.isMenuActive = !this.isMenuActive;
+    },
   },
 
   computed: {

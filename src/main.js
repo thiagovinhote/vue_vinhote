@@ -3,6 +3,8 @@
 import Vue from 'vue';
 import Buefy from 'buefy';
 import linkify from 'vue-linkify';
+import VueAwesomeSwiper from 'vue-awesome-swiper';
+import 'swiper/dist/css/swiper.css';
 import 'buefy/lib/buefy.css';
 import 'bulma-carousel/dist/bulma-carousel.min.css';
 import 'bulma-carousel/dist/carousel';
@@ -14,6 +16,7 @@ import store from '@/store';
 
 Vue.use(Buefy);
 Vue.directive('linkified', linkify);
+Vue.use(VueAwesomeSwiper);
 
 /* eslint-disable no-new */
 new Vue({

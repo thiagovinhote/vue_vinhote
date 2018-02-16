@@ -3,16 +3,19 @@
     <Hero
       color="is-warning"
       title="Experiências"
-      subtitle="Timeline"
+      subtitle="Veja onde já trabalhei e quais são minhas habilidades"
     />
 
     <section class="section">
       <div class="columns">
-        <div class="column is-6">
-          <Timeline />
+        <div class="column is-5" v-if="!emptyExperience">
+          <h2 class="subtitle has-text-centered">Timeline</h2>
+          <Timeline order="is-centered" :experiences="experience.results" />
         </div>
-        <div class="column">
-          <div class="columns">
+        <div class="column" v-if="!emptySkill">
+          <h2 class="subtitle has-text-centered">Competências</h2>
+
+          <!-- <div class="columns">
             <div class="column">
               <Message color="is-info">
                 <p>
@@ -29,42 +32,76 @@
                 <small>@vinhote</small>
               </Message>
             </div>
-          </div>
+          </div> -->
 
-          <MediaObject imagesize='is-64x64'>
-            <span slot="header">
-              <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-            </span>
-            <span slot="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-            </span>
-          </MediaObject>
-          <MediaObject imagesize='is-64x64'>
-            <span slot="header">
-              <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-            </span>
-            <span slot="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-            </span>
-          </MediaObject>
+          <div class="columns is-multiline">
+            <div class="column is-half" v-for="s of skill.results">
+              <MediaObject :imageurl="s.image" imagesize='is-64x64'>
+                <span slot="header">
+                  <strong>{{ s.name }}</strong>
+                  <!-- <small>@johnsmith</small> <small>31m</small> -->
+                </span>
+                <span slot="text">
+                  {{ s.description }}
+                </span>
+              </MediaObject>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <Zone
+      color="is-light"
+      size="is-medium"
+    />
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+import * as _ from 'lodash';
+
 import Hero from '@/components/Hero';
+import Zone from '@/components/Zone';
 import Message from '@/components/Message';
 import { MediaObject } from '@/components/media-object';
-import Timeline from '@/components/Timeline';
+import Timeline from '@/components/timeline';
 
 export default {
   components: {
     Hero,
+    Zone,
     Message,
     MediaObject,
     Timeline,
+  },
+
+  mounted() {
+    this.fetchExperience();
+    this.fetchSkill();
+  },
+
+  methods: {
+    ...mapActions({
+      fetchExperience: 'FETCH_EXPERIENCE',
+      fetchSkill: 'FETCH_SKILL',
+    }),
+  },
+
+  computed: {
+    ...mapGetters({
+      experience: 'GET_EXPERIENCE',
+      skill: 'GET_SKILL',
+    }),
+
+    emptyExperience() {
+      return _.isEmpty(this.experience);
+    },
+
+    emptySkill() {
+      return _.isEmpty(this.skill);
+    },
   },
 };
 </script>

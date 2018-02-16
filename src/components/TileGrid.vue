@@ -1,120 +1,63 @@
 <template>
   <div>
     <div class="tile is-ancestor">
-      <div class="tile is-vertical is-9">
-        <div class="tile">
-          <div class="tile is-vertical">
-            <div class="tile is-parent">
-              <article class="tile is-child box">
-                <p class="title">Five</p>
-                <p class="subtitle">Subtitle</p>
-                <figure class="image is-4by3">
-                  <img src="https://bulma.io/images/placeholders/640x480.png">
-                </figure>
-              </article>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child box">
-                <p class="title">Five</p>
-                <p class="subtitle">Subtitle</p>
-                <figure class="image is-4by3">
-                  <img src="https://bulma.io/images/placeholders/640x480.png">
-                </figure>
-              </article>
-            </div>
-          </div>
-          <div class="tile is-8 is-vertical">
-            <div class="tile">
-              <div class="tile is-parent">
-                <article class="tile is-child box">
-                  <p class="title">Six</p>
-                  <p class="subtitle">Subtitle</p>
-                </article>
-              </div>
-              <div class="tile is-parent">
-                <article class="tile is-child box">
-                  <p class="title">Seven</p>
-                  <p class="subtitle">Subtitle</p>
-                </article>
-              </div>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child box">
-                <p class="title">Eight</p>
-                <p class="subtitle">Subtitle</p>
-              </article>
-            </div>
-          </div>
-        </div>
-        <div class="tile">
-          <div class="tile is-8 is-parent">
+      <div class="tile is-vertical">
+        <div v-for="m of matrix" class="tile">
+          <div v-for="w of m" class="tile is-parent">
             <article class="tile is-child box">
-              <p class="title">Nine</p>
-              <p class="subtitle">Subtitle</p>
               <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+                <p class="title">{{ w.name }}</p>
+                <!-- <p class="subtitle is-6">
+                  <a href="">{{ w.link_store }}</a>
+                </p> -->
               </div>
-            </article>
-          </div>
-          <div class="tile is-parent">
-            <article class="tile is-child box">
-              <p class="title">Ten</p>
-              <p class="subtitle">Subtitle</p>
+              <figure class="image is-square">
+                <img :src.native="w.image">
+              </figure>
+              <br/>
               <div class="content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+                <p>{{ w.description }}</p>
               </div>
+              <a class="tags has-addons" :href="w.link_store" target="__blank">
+                <span class="tag">Loja</span>
+                <span class="tag is-info">AppStore</span>
+              </a>
             </article>
           </div>
         </div>
-      </div>
-      <div class="tile is-parent">
-        <article class="tile is-child box">
-          <div class="content">
-            <p class="title">Eleven</p>
-            <p class="subtitle">Subtitle</p>
-            <div class="content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
-              <p>Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero. Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet lacus, quis faucibus libero. Quisque non semper leo.</p>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <div class="tile is-ancestor">
-      <div class="tile is-parent">
-        <article class="tile is-child box">
-          <p class="title">Twelve</p>
-          <p class="subtitle">Subtitle</p>
-          <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut.</p>
-          </div>
-        </article>
-      </div>
-      <div class="tile is-parent">
-        <article class="tile is-child box">
-          <p class="title">Fourteen</p>
-          <p class="subtitle">Subtitle</p>
-          <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut.</p>
-          </div>
-        </article>
-      </div>
-      <div class="tile is-parent is-6">
-        <article class="tile is-child box">
-          <p class="title">Thirteen</p>
-          <p class="subtitle">Subtitle</p>
-          <div class="content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
-          </div>
-        </article>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import * as _ from 'lodash';
+import { mapGetters, mapActions } from 'vuex';
+
+export default {
+  mounted() {
+    this.fetchWork(true);
+  },
+
+  methods: {
+    ...mapActions({
+      fetchWork: 'FETCH_WORK',
+    }),
+    split() {
+      const matrix = _.chunk(this.work.results, 3);
+      return matrix;
+    },
+  },
+
+  computed: {
+    ...mapGetters({
+      work: 'GET_WORK',
+    }),
+    matrix() {
+      return this.split();
+    },
+  },
+};
 </script>
 
 <style></style>
