@@ -18,8 +18,8 @@
         <p>Timeline content - Can include any HTML element</p>
       </div>
     </div> -->
-    
-    <Item v-for="item of experiences" :title="toFormat(item.from_date)">
+
+    <Item v-for="(item, index) of experiences" :title="toFormat(item.from_date)" :key="index">
       <p slot="content">
         <strong>{{ item.company }}</strong>
         <br/>
@@ -59,7 +59,7 @@ export default {
       const { experiences } = this;
       const data = {};
       _.each(experiences, (i) => {
-        const year = this.getYear(i['from_date']);
+        const year = this.getYear(i.get('from_date'));
 
         if (data[year] === undefined) {
           data[year] = [];

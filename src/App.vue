@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <NavBar />
-    <transition name="fade"  mode="out-in">
+    <transition name="fade" mode="out-in">
       <router-view/>
     </transition>
     <Footer />
@@ -37,10 +37,11 @@ export default {
   .is-mask-circle {
     mask-image: radial-gradient(circle at 51% 51%, black 64%, transparent 70%);
   }
-  .fade-enter-active, .component-fade-leave-active {
+
+  .fade-enter-active, .fade-leave-active {
     transition: opacity 0.5s ease;
   }
-  .fade-enter, .component-fade-leave-to {
+  .fade-enter, .fade-leave-to {
     opacity: 0;
   }
 </style>

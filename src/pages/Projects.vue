@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="columns is-multiline">
-          <div class="column is-half" v-for="p of project.results">
+          <div class="column is-half" v-for="(p, index) of project.results" :key="index">
             <MediaObject
               imagesize='is-64x64'
               :imageurl="p.image"
@@ -34,7 +34,6 @@
               <!-- v-linkified:options="options" -->
               <span slot="text" v-linkified:options="options" v-html="p.description">
               </span>
-              
               <MediaNav
                 slot="links"
                 :links="p.links"

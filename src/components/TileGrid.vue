@@ -2,8 +2,8 @@
   <div>
     <div class="tile is-ancestor">
       <div class="tile is-vertical">
-        <div v-for="m of matrix" class="tile">
-          <div v-for="w of m" class="tile is-parent">
+        <div v-for="(m, mIndex) of matrix" class="tile" :key="mIndex">
+          <div v-for="(w, wIndex) of m" class="tile is-parent" :key="wIndex">
             <article class="tile is-child box">
               <div class="content">
                 <p class="title">{{ w.name }}</p>
@@ -12,7 +12,7 @@
                 </p> -->
               </div>
               <figure class="image is-square">
-                <img :src.native="w.image">
+                <img :src="w.image">
               </figure>
               <br/>
               <div class="content">

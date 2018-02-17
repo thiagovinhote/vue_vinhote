@@ -15,11 +15,12 @@
         <div class="column" v-if="!emptySkill">
           <h2 class="subtitle has-text-centered">Competências</h2>
 
-          <!-- <div class="columns">
+          <div class="columns">
             <div class="column">
               <Message color="is-info">
                 <p>
-                  O <strong>conhecimento</strong> se torna mais interessante quando ele é <strong>compartilhado</strong> com as outras pessoas.
+                  O <strong> conhecimento </strong> se torna mais interessante quando
+                  ele é <strong> compartilhado </strong> com as outras pessoas.
                 </p>
                 <small>@vinhote</small>
               </Message>
@@ -27,15 +28,17 @@
             <div class="column">
               <Message>
                 <p>
-                  Todos querem <strong>aprender</strong>, mas poucos são os que se <strong>esforçam</strong> para estudar e expandir seus <strong>horizontes</strong>.
+                  Todos querem <strong> aprender </strong>, mas poucos são os que se
+                  <strong>esforçam</strong> para estudar e expandir seus
+                  <strong>horizontes</strong>.
                 </p>
                 <small>@vinhote</small>
               </Message>
             </div>
-          </div> -->
+          </div>
 
           <div class="columns is-multiline">
-            <div class="column is-half" v-for="s of skill.results">
+            <div class="column is-half" v-for="(s, index) of skill.results" :key="index">
               <MediaObject :imageurl="s.image" imagesize='is-64x64'>
                 <span slot="header">
                   <strong>{{ s.name }}</strong>

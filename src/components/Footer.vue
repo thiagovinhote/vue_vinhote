@@ -3,9 +3,9 @@
     <!-- <div class="container">
       <div class="columns">
         <div class="column">
-          <p class="title">Portifólio</p>
-          <p class="subtitle is-6">        
-          </p>
+        <p class="title">Portifólio</p>
+          <p class="subtitle is-6">
+        </p>
         </div>
       </div>
     </div> -->

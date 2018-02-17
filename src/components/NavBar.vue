@@ -5,23 +5,33 @@
         <router-link to="/" exact class="navbar-item">
           <img src="static/logo.png" alt="Portifólio logo" width="112" height="28">
         </router-link>
-        <span @click="clickMenu" class="navbar-burger burger" data-target="navbarMenuHeroA" :class="{'is-active': isMenuActive}">
+        <span
+          @click="clickMenu"
+          class="navbar-burger burger"
+          data-target="navbarMenuHeroA"
+          :class="{'is-active': isMenuActive}"
+        >
           <span></span>
           <span></span>
           <span></span>
         </span>
       </div>
-      <div class="navbar-start">
-        <a class="navbar-item" v-for="social of socialNetworks" :href="social.link" target="__blank">
-          <span class="icon">
-            <i class="fab" :class="social.icon"></i>
-          </span>
-        </a>
-        </a>
-      </div>
       <div id="navbarMenuHeroA" class="navbar-menu" :class="{'is-active': isMenuActive}">
+        <div class="navbar-start is-hidden-touch">
+          <a
+            class="navbar-item"
+            v-for="(social, index) of socialNetworks"
+            :href="social.link" target="__blank"
+            :key="index"
+          >
+            <span class="icon">
+              <i class="fab" :class="social.icon"></i>
+            </span>
+          </a>
+        </div>
         <div class="navbar-end">
           <router-link
+            @click.native="clickMenu"
             v-bind:key="route.path"
             :to="route.path"
             class="navbar-item"

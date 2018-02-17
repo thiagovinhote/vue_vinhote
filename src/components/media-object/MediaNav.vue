@@ -2,7 +2,8 @@
   <nav class="level is-mobile">
     <div class="level-left">
       <a
-        v-for="link of links"
+        v-for="(link, index) of links"
+        :key="index"
         class="level-item"
         :href="link.url"
         target="__blank"

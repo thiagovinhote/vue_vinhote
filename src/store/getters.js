@@ -1,25 +1,25 @@
 export default {
-  'GET_PROJECT' ({ project }) {
+  GET_PROJECT({ project }) {
     return project;
   },
 
-  'GET_WORK' ({ work }) {
+  GET_WORK({ work }) {
     return work;
   },
 
-  'GET_EXPERIENCE' ({ experience }) {
+  GET_EXPERIENCE({ experience }) {
     return experience;
   },
 
-  'GET_SKILL' ({ skill }) {
+  GET_SKILL({ skill }) {
     return skill;
   },
 
-  'GET_SOCIAL_NETWORKS' ({ socialNetworks }) {
+  GET_SOCIAL_NETWORKS({ socialNetworks }) {
     return socialNetworks;
   },
 
-  'GET_PLATAFORMS' ({ plataforms }) {
+  GET_PLATAFORMS({ plataforms }) {
     return plataforms;
   },
 };

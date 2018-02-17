@@ -16,16 +16,22 @@
             <p class="subtitle">
               <ul>
                 <li>
-                  Sou um desenvolvedor web e mobile, sempre se atualizando com as novas tecnologias que surgem no mercado, para resolver os desafios aplicando a tecnologia que melhor se encaixar. 
+                  Sou um desenvolvedor web e mobile, sempre se atualizando com as
+                  novas tecnologias que surgem no mercado, para resolver os desafios
+                  aplicando a tecnologia que melhor se encaixar.
                 </li>
                 <br/>
                 <li>
-                  Experiência de 2 anos na Apple Developer Academy com desenvolvimento especifico para iOS, watchOS e tvOS. Prática com metodologias como: Scrum, MVP e CBL.
+                Experiência de 2 anos na Apple Developer Academy com desenvolvimento
+                  especifico para iOS, watchOS e tvOS. Prática com metodologias
+                  como: Scrum, MVP e CBL.
                 </li>
                 <br/>
                 <li>
-                  Desenvolvo para web tanto no Back-End implementado API's quanto no Front-End criando aplicações visuais.
-                  No mobile, posso desenvolver tanto aplicações com código nativo com Swift(iOS) ou Java(Android) quanto com bibliotecas como o React-Native(JavaScript).
+                  Desenvolvo para web tanto no Back-End implementado API's quanto no
+                  Front-End criando aplicações visuais. No mobile, posso desenvolver tanto
+                  aplicações com código nativo com Swift(iOS) ou Java(Android) quanto com
+                  bibliotecas como o React-Native(JavaScript).
                 </li>
               </ul>
             </p>
@@ -47,8 +53,17 @@
         </div>
         <div class="column">
           <div class="columns is-multiline">
-            <div v-for="(social, index) of socials" class="column is-one-quarter">
-              <a :href="social.link" target="__blank" class="button is-medium" :class="getColor(index)">
+            <div
+              v-for="(social, index) of socials"
+              class="column is-one-quarter"
+              :key="index"
+            >
+              <a
+                :href="social.link"
+                target="__blank"
+                class="button is-medium"
+                :class="getColor(index)"
+              >
                 <span class="icon">
                   <i class="fab" :class="social.icon"></i>
                 </span>
