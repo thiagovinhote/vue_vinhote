@@ -29,7 +29,7 @@
                 </li>
                 <br/>
                 <li>
-                  Desenvolvo para web tanto no Back-End implementado APIs quanto no
+                  Desenvolvo para web tanto no Back-End implementando APIs quanto no
                   Front-End criando aplicações visuais. No mobile, posso desenvolver tanto
                   aplicações com código nativo com Swift(iOS) ou Java(Android) quanto com
                   bibliotecas como o React-Native(JavaScript).

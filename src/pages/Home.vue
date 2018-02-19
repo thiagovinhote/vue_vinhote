@@ -21,13 +21,13 @@
           <div class="column is-half">
             <p class="subtitle">Profissional</p>
             Sou um desenvolvedor Web e Mobile, sempre pronto para o desenvolvimento de projetos
-            inovadores. Me mantendo atualizado em relação as novas tecnologias que surgem no
+            inovadores. Me mantendo atualizado em relação às novas tecnologias que surgem no
             mercado, para resolver os desafios aplicando a tecnologia que melhor se encaixar.
           </div>
           <div class="column is-half">
             <p class="subtitle">Pessoal</p>
-            Como todo ser humano, gosto de uma boa conversar, compartilhar o conhecimento,
-            ter novos desafios e puder ter os amigos por perto. Descontrair de vez
+            Como todo ser humano, gosto de uma boa conversa, compartilhar o conhecimento,
+            ter novos desafios e poder ter os amigos por perto. Descontrair de vez
             em quando, comer aquela comida boa e tomar uma ótima brêja com os 'brothers'.
           </div>
           <!-- <div class="column is-half">
