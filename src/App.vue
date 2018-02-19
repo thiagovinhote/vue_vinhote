@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <NavBar />
+    <vue-progress-bar></vue-progress-bar>
     <transition name="fade" mode="out-in">
       <router-view/>
     </transition>
@@ -35,7 +36,7 @@ export default {
   }
 
   .is-mask-circle {
-    mask-image: radial-gradient(circle at 51% 51%, black 64%, transparent 70%);
+    mask-image: radial-gradient(circle at 51% 51%, black 68%, transparent 70%);
   }
 
   .fade-enter-active, .fade-leave-active {

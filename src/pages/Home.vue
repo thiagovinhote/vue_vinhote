@@ -8,7 +8,7 @@
       position="has-text-centered"
     >
       <div class="content">
-        <img class="is-circle is-250x250 is-mask-circle" src="static/photo.png">
+        <img class="is-circle is-250x250" src="static/photo_2.png">
       </div>
     </Hero>
 
@@ -26,9 +26,9 @@
           </div>
           <div class="column is-half">
             <p class="subtitle">Pessoal</p>
-            E também, como todo ser humano, gosto de uma boa conversar, compartilhar o conhecimento,
-            ter novos desafios e poder ter os amigos por perto. Descontrair de vez em quando,
-            comer aquela comida boa e tomar uma boa brêja com os 'brothers'.
+            Como todo ser humano, gosto de uma boa conversar, compartilhar o conhecimento,
+            ter novos desafios e puder ter os amigos por perto. Descontrair de vez
+            em quando, comer aquela comida boa e tomar uma ótima brêja com os 'brothers'.
           </div>
           <!-- <div class="column is-half">
             <Carousel :perview="1">

@@ -16,19 +16,20 @@
             <p class="subtitle">
               <ul>
                 <li>
-                  Sou um desenvolvedor web e mobile, sempre se atualizando com as
-                  novas tecnologias que surgem no mercado, para resolver os desafios
-                  aplicando a tecnologia que melhor se encaixar.
+                  Sou um desenvolvedor <i>web</i> e <i>mobile</i>, sempre
+                  me atualizando com as novas tecnologias que surgem no
+                  mercado, para resolver os desafios aplicando a tecnologia
+                  que melhor se encaixar.
                 </li>
                 <br/>
                 <li>
-                Experiência de 2 anos na Apple Developer Academy com desenvolvimento
-                  especifico para iOS, watchOS e tvOS. Prática com metodologias
-                  como: Scrum, MVP e CBL.
+                  Experiência de 2 anos na Apple Developer Academy com desenvolvimento
+                  específico para iOS, watchOS e tvOS. Práticas com as metodologias
+                  Scrum, MVP e CBL.
                 </li>
                 <br/>
                 <li>
-                  Desenvolvo para web tanto no Back-End implementado API's quanto no
+                  Desenvolvo para web tanto no Back-End implementado APIs quanto no
                   Front-End criando aplicações visuais. No mobile, posso desenvolver tanto
                   aplicações com código nativo com Swift(iOS) ou Java(Android) quanto com
                   bibliotecas como o React-Native(JavaScript).
@@ -39,7 +40,7 @@
         </div>
         <div class="column is-offset-1 has-text-centered">
           <div class="content">
-            <img class="is-circle is-mask-circle is-250x250" src="static/photo.png">
+            <img class="is-circle is-250x250" src="static/photo_2.png">
           </div>
         </div>
       </div>

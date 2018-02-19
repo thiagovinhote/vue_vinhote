@@ -20,7 +20,14 @@
             </b-pagination>
           </div>
         </div>
-        <div class="columns is-multiline">
+
+        <div v-if="projectsEmpty" class="columns is-multiline">
+          <div v-for="(number, index) of contentLoadingNumber" class="column is-half" :key="index">
+            <VclFacebook />
+          </div>
+        </div>
+
+        <div v-if="!projectsEmpty" class="columns is-multiline">
           <div class="column is-half" v-for="(p, index) of project.results" :key="index">
             <MediaObject
               imagesize='is-64x64'
@@ -28,10 +35,7 @@
             >
               <span slot="header">
                 <strong>{{ p.name }}</strong>
-                <!-- <small>@johnsmith</small> <small>31m</small> -->
               </span>
-
-              <!-- v-linkified:options="options" -->
               <span slot="text" v-linkified:options="options" v-html="p.description">
               </span>
               <MediaNav
@@ -52,6 +56,8 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import { VclFacebook } from 'vue-content-loading';
+import * as _ from 'lodash';
 
 import Hero from '@/components/Hero';
 import TileGrid from '@/components/TileGrid';
@@ -63,6 +69,8 @@ export default {
     TileGrid,
     MediaObject,
     MediaNav,
+
+    VclFacebook,
   },
 
   mounted() {
@@ -78,6 +86,7 @@ export default {
         order: 'is-right',
         size: 'is-small',
       },
+      contentLoadingNumber: 4,
     };
   },
 
@@ -94,6 +103,10 @@ export default {
     ...mapGetters({
       project: 'GET_PROJECT',
     }),
+
+    projectsEmpty() {
+      return _.isEmpty(this.project.results);
+    },
   },
 };
 </script>
