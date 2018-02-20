@@ -7,6 +7,7 @@ export default {
   },
 
   async FETCH_PROJECT(context, page) {
+    context.commit('PROJECT_RECEIVE', {});
     const response = await api.get(`projects/?page=${page}`);
     context.commit('PROJECT_RECEIVE', response.data);
   },
