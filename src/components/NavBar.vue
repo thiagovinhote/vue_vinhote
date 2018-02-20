@@ -3,7 +3,7 @@
     <div class="container">
       <div class="navbar-brand">
         <router-link to="/" exact class="navbar-item">
-          <img src="static/logo.png" alt="Portifólio logo" width="112" height="28">
+          <img src="static/logo.png" alt="Portfólio logo" width="112" height="28">
         </router-link>
         <span
           @click="clickMenu"
