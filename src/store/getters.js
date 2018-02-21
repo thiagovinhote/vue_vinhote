@@ -15,6 +15,10 @@ export default {
     return skill;
   },
 
+  GET_CERTIFICATE({ certificate }) {
+    return certificate;
+  },
+
   GET_SOCIAL_NETWORKS({ socialNetworks }) {
     return socialNetworks;
   },

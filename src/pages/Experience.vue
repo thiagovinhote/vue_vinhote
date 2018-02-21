@@ -15,7 +15,7 @@
         <div class="column" v-if="!emptySkill">
           <h2 class="subtitle has-text-centered">Competências</h2>
 
-          <div class="columns">
+          <!-- <div class="columns">
             <div class="column">
               <Message color="is-info">
                 <p>
@@ -35,7 +35,7 @@
                 <small>@vinhote</small>
               </Message>
             </div>
-          </div>
+          </div> -->
 
           <div class="columns is-multiline">
             <div class="column is-half" v-for="(s, index) of skill.results" :key="index">
@@ -52,18 +52,43 @@
           </div>
         </div>
       </div>
-    </section>
 
-    <Zone
-      color="is-light"
-      size="is-medium"
-    />
+      <div class="container">
+        <h1 class="title">Certificados</h1>
+        <div class="columns is-multiline">
+          <div class="column is-4" v-for="(c, index) of certificate.results" :key="index">
+            <Message color="is-warning">
+              <div class="columns">
+                <div class="column is-2">
+                  <span class="icon is-medium">
+                    <i class="fas fa-certificate fa-2x"></i>
+                  </span>
+                </div>
+                <div class="column">
+                  <MediaObject :isimage="false">
+                    <span slot="header">
+                      <strong> {{ c.course }}</strong> |
+                      <small>{{ c.category }}</small>
+                    </span>
+                    <span slot="text">
+                      <p>{{ c.school }}</p>
+                      <small class="tag is-white">{{ toFormat(c.date_conclusion) }}</small>
+                    </span>
+                  </MediaObject>
+                </div>
+              </div>
+            </Message>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import * as _ from 'lodash';
+import moment from 'moment';
 
 import Hero from '@/components/Hero';
 import Zone from '@/components/Zone';
@@ -83,19 +108,27 @@ export default {
   mounted() {
     this.fetchExperience();
     this.fetchSkill();
+    this.fetchCertificate();
   },
 
   methods: {
     ...mapActions({
       fetchExperience: 'FETCH_EXPERIENCE',
       fetchSkill: 'FETCH_SKILL',
+      fetchCertificate: 'FETCH_CERTIFICATE',
     }),
+
+    toFormat(dateString) {
+      const formattedDate = moment(dateString).format('MMMM - YYYY');
+      return formattedDate.toUpperCase();
+    },
   },
 
   computed: {
     ...mapGetters({
       experience: 'GET_EXPERIENCE',
       skill: 'GET_SKILL',
+      certificate: 'GET_CERTIFICATE',
     }),
 
     emptyExperience() {

@@ -21,4 +21,9 @@ export default {
     const response = await api.get('skills');
     context.commit('SKILL_RECEIVE', response.data);
   },
+
+  async FETCH_CERTIFICATE(context) {
+    const response = await api.get('certificates');
+    context.commit('CERTIFICATE_RECEIVE', response.data);
+  },
 };

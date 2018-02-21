@@ -14,4 +14,8 @@ export default {
   SKILL_RECEIVE(state, skill) {
     state.skill = skill;
   },
+
+  CERTIFICATE_RECEIVE(state, certificate) {
+    state.certificate = certificate;
+  },
 };

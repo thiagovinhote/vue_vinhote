@@ -2,11 +2,14 @@
   <div>
     <Hero
       title="Projetos"
-      subtitle="Meus projetos"
+      subtitle="Os projetos desenvolvidos por mim"
       color="is-danger"
     />
     <section class="section">
       <div class="container">
+        <h1 class="title">Públicos</h1>
+        <h2 class="subtitle">Os projetos dessa lista estão disponíveis no Github</h2>
+
         <div class="columns">
           <div class="column">
             <b-pagination
