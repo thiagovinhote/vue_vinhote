@@ -16,6 +16,6 @@ export default {
   plataforms: [
     { title: 'Mobile', description: 'No universo mobile, programo com linguagem nativa e com React-Native', icon: 'fa-mobile-alt' },
     { title: 'Front-End', description: 'Em web, uso tecnologias como AngularJS, ReactJS e VueJS', icon: 'fa-desktop' },
-    { title: 'Back-End', description: 'Na parte por atrás do panos, Node e Python no back-end', icon: 'fa-code' },
+    { title: 'Back-End', description: 'Na parte por trás do panos, Node e Python no back-end', icon: 'fa-code' },
   ],
 };

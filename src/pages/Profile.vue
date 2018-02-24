@@ -46,7 +46,7 @@
       </div>
     </Zone>
 
-    <Zone>
+    <Zone color="is-light">
       <div class="columns">
         <div class="column is-4">
           <h1 class="title">Minhas redes sociais</h1>
@@ -107,11 +107,11 @@
       </nav>
     </Zone> -->
 
-    <Zone
+    <!-- <Zone
       color="is-light"
       size="is-medium"
     >
-      <!-- <h1 class="title">Amigos</h1>
+      <h1 class="title">Amigos</h1>
       <hr/>
       <div class="columns is-multiline is-desktop">
         <div v-for="amigo of amigos" class="column is-one-quarter">
@@ -121,7 +121,32 @@
             </h1>
           </MediaObject>
         </div>
-      </div> -->
+      </div>
+    </Zone> -->
+    <Zone color="is-info">
+      <h1 class="title">Contato</h1>
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">
+              <span class="icon">
+                <i class="fas fa-inbox"></i>
+              </span> Email
+            </p>
+            <p class="subtitle">thiago.esw@gmail.com</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">
+              <span class="icon">
+                <i class="fas fa-phone"></i>
+              </span> Telefone
+            </p>
+            <p class="subtitle">(092) 99428-3875</p>
+          </div>
+        </div>
+      </nav>
     </Zone>
   </div>
 </template>
