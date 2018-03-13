@@ -113,9 +113,9 @@ export default {
 
   methods: {
     ...mapActions({
-      fetchExperience: 'FETCH_EXPERIENCE',
-      fetchSkill: 'FETCH_SKILL',
-      fetchCertificate: 'FETCH_CERTIFICATE',
+      fetchExperience: 'experience/FETCH_EXPERIENCE',
+      fetchSkill: 'skill/FETCH_SKILL',
+      fetchCertificate: 'certificate/FETCH_CERTIFICATE',
     }),
 
     toFormat(dateString) {
@@ -126,9 +126,9 @@ export default {
 
   computed: {
     ...mapGetters({
-      experience: 'GET_EXPERIENCE',
-      skill: 'GET_SKILL',
-      certificate: 'GET_CERTIFICATE',
+      experience: 'experience/GET_EXPERIENCES',
+      skill: 'skill/GET_SKILLS',
+      certificate: 'certificate/GET_CERTIFICATES',
     }),
 
     emptyExperience() {

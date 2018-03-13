@@ -39,6 +39,38 @@
           >
             {{ route.title }}
           </router-link>
+          <router-link
+            v-if="!loggedin"
+            @click.native="clickMenu"
+            to="/account/login/"
+            class="navbar-item"
+          >
+            Entrar
+          </router-link>
+          <div
+            class="navbar-item has-dropdown is-hoverable"
+            v-if="loggedin"
+          >
+            <a class="navbar-link">
+              {{ currentUser.username }}
+            </a>
+
+            <div class="navbar-dropdown is-right">
+              <router-link
+                to="/account"
+                class="navbar-item"
+              >
+                Conta
+              </router-link>
+              <hr class="navbar-divider">
+              <a
+                class="navbar-item"
+                @click="logoutUser"
+              >
+                Sair
+              </a>
+            </div>
+          </div>
           <!-- <span class="navbar-item">
             <a class="button is-primary is-inverted">
               <span class="icon">
@@ -54,7 +86,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import { routes } from '@/router';
 
 export default {
@@ -66,6 +98,12 @@ export default {
   },
 
   methods: {
+    ...mapActions({
+      logout: 'auth/LOGOUT',
+    }),
+    logoutUser() {
+      this.logout();
+    },
     clickMenu() {
       this.isMenuActive = !this.isMenuActive;
     },
@@ -74,6 +112,8 @@ export default {
   computed: {
     ...mapGetters({
       socialNetworks: 'GET_SOCIAL_NETWORKS',
+      loggedin: 'auth/LOGGED_IN',
+      currentUser: 'auth/GET_USER',
     }),
   },
 };

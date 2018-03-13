@@ -41,7 +41,7 @@ export default {
 
   methods: {
     ...mapActions({
-      fetchWork: 'FETCH_WORK',
+      fetchWork: 'work/FETCH_WORK',
     }),
     split() {
       const matrix = _.chunk(this.work.results, 3);
@@ -51,7 +51,7 @@ export default {
 
   computed: {
     ...mapGetters({
-      work: 'GET_WORK',
+      work: 'work/GET_WORKS',
     }),
     matrix() {
       return this.split();

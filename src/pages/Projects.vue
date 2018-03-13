@@ -95,7 +95,7 @@ export default {
 
   methods: {
     ...mapActions({
-      fetch: 'FETCH_PROJECT',
+      fetch: 'project/FETCH_PROJECT',
     }),
     changePagination(number) {
       this.fetch(number);
@@ -104,11 +104,11 @@ export default {
 
   computed: {
     ...mapGetters({
-      project: 'GET_PROJECT',
+      project: 'project/GET_PROJECTS',
     }),
 
     projectsEmpty() {
-      return _.isEmpty(this.project.results);
+      return _.isEmpty(this.project);
     },
   },
 };
