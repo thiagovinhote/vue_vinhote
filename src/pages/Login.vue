@@ -5,9 +5,7 @@
         <div class="column is-4 is-offset-4">
           <h3 class="title has-text-grey">Acesse sua conta</h3>
           <p class="subtitle is-6 has-text-danger">{{ messageStatus }}</p>
-          <!-- <pre>
-            {{ auth }}
-          </pre> -->
+
           <div class="box">
             <figure class="avatar">
               <img src="/static/logo_2.png">
@@ -33,12 +31,7 @@
                     v-model="user.password" />
                 </div>
               </div>
-              <!-- <div class="field">
-                <label class="checkbox">
-                  <input type="checkbox">
-                  Remember me
-                </label>
-              </div> -->
+
               <button
                 type="submit"
                 class="button is-block is-info is-fullwidth"
@@ -85,7 +78,7 @@ export default {
       const { loggedin } = this.auth;
 
       if (loggedin) {
-        this.$router.push('/account');
+        this.$router.push('/account/profile');
       }
     },
   },
@@ -99,7 +92,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
   .box {
     margin-top: 5rem;
   }

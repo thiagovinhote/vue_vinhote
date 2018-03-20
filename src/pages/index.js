@@ -6,6 +6,7 @@ import Experience from './Experience';
 import Login from './Login';
 import Register from './Register';
 import Account from './Account';
+import Admin from './Admin';
 
 export {
   Home,
@@ -16,4 +17,5 @@ export {
   Login,
   Register,
   Account,
+  Admin,
 };

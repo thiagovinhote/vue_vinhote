@@ -13,6 +13,7 @@ import {
   Login,
   Register,
   Account,
+  Admin,
 } from '../pages';
 
 Vue.use(Router);
@@ -50,11 +51,21 @@ const mapRoutes = [
     title: 'Home',
   },
   {
-    path: '/account',
+    path: '/account/profile',
     name: 'Account',
     component: Account,
     title: 'Conta',
     beforeEnter: IsLoggedIn,
+  },
+  {
+    path: '/account/admin',
+    name: 'Admin',
+    component: Admin,
+    title: 'Administrador',
+    beforeEnter: IsLoggedIn,
+    meta: {
+      isAdmin: true,
+    },
   },
   {
     path: '/account/login',

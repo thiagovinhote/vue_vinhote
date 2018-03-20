@@ -8,7 +8,7 @@
     <Zone
       color="is-light"
     >
-      <MediaObject :isimage="false">
+      <MediaObject :imageurl="currentUser.avatar">
         <span slot="header">
           <strong> {{ currentUser.first_name }}</strong>
           <strong> {{ currentUser.last_name }}</strong>

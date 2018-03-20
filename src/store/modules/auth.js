@@ -27,6 +27,10 @@ const getters = {
   AUTH(state) {
     return state;
   },
+
+  IS_ADMIN({ user }) {
+    return (typeof user.is_superuser !== 'undefined' && user.is_superuser);
+  },
 };
 
 const actions = {
@@ -75,11 +79,13 @@ const mutations = {
   SET_ACCESS_TOKEN(state, token) {
     localStorage.setItem('accessToken', token);
     state.token = token;
+    api.setHeader('Authorization', `Bearer ${token}`);
   },
 
   CLEAR_ACCESS_TOKEN(state) {
     localStorage.removeItem('accessToken');
     state.token = false;
+    api.setHeader('Authorization', '');
   },
 
   SET_LOGGED_IN(state, status) {
@@ -89,7 +95,6 @@ const mutations = {
   SET_MESSAGE(state, message) {
     state.message = message;
   },
-
 };
 
 export default {

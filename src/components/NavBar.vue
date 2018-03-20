@@ -57,10 +57,17 @@
 
             <div class="navbar-dropdown is-right">
               <router-link
-                to="/account"
+                to="/account/profile"
                 class="navbar-item"
               >
                 Conta
+              </router-link>
+              <router-link
+                v-if="isAdmin"
+                to="/account/admin"
+                class="navbar-item"
+              >
+                Admin
               </router-link>
               <hr class="navbar-divider">
               <a
@@ -101,8 +108,9 @@ export default {
     ...mapActions({
       logout: 'auth/LOGOUT',
     }),
-    logoutUser() {
-      this.logout();
+    async logoutUser() {
+      await this.logout();
+      this.$router.push('/');
     },
     clickMenu() {
       this.isMenuActive = !this.isMenuActive;
@@ -114,6 +122,7 @@ export default {
       socialNetworks: 'GET_SOCIAL_NETWORKS',
       loggedin: 'auth/LOGGED_IN',
       currentUser: 'auth/GET_USER',
+      isAdmin: 'auth/IS_ADMIN',
     }),
   },
 };
