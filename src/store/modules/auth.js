@@ -50,12 +50,29 @@ const actions = {
     }
   },
 
-  async AUTHENTICATE({ commit }) {
-    const response = await api.post('rest-auth/user/');
-    const { data } = response;
+  async AUTHENTICATE({ commit, dispatch, state }) {
+    const response = await api.get('rest-auth/user/');
+    const { data, ok } = response;
 
-    commit('SET_LOGGED_IN', true);
-    commit('SET_USER', data);
+    if (ok) {
+      commit('SET_LOGGED_IN', true);
+      commit('SET_USER', data);
+    } else {
+      dispatch('REFRESH_TOKEN', state.token);
+    }
+  },
+
+  async REFRESH_TOKEN({ commit }, token) {
+    const response = await api.post('rest-auth/refresh/', { token });
+    const { data, ok } = response;
+
+    if (ok) {
+      commit('SET_ACCESS_TOKEN', data.token);
+    } else {
+      commit('SET_LOGGED_IN', false);
+      commit('SET_USER', false);
+      commit('CLEAR_ACCESS_TOKEN', false);
+    }
   },
 
   async LOGOUT({ commit }) {
@@ -64,6 +81,12 @@ const actions = {
     commit('SET_LOGGED_IN', false);
     commit('SET_USER', false);
     commit('CLEAR_ACCESS_TOKEN', false);
+  },
+
+  async UPDATE_USER(context, data) {
+    const userId = context.getters['GET_USER'].id;
+    const response = await api.patch(`users/${userId}/`, data);
+    context.commit('SET_USER', response.data);
   },
 };
 

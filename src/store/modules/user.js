@@ -1,4 +1,5 @@
 import api from '@/services/api';
+import * as _ from 'lodash';
 
 const INITIAL_STATE = {
   data: [],
@@ -7,6 +8,10 @@ const INITIAL_STATE = {
 const getters = {
   GET_USERS({ data }) {
     return data;
+  },
+
+  IS_EMPTY({ data }) {
+    return _.isEmpty(data);
   },
 };
 

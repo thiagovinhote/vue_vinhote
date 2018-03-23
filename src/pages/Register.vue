@@ -117,10 +117,10 @@ export default {
       userData.password2 = user.password;
       await this.register(userData);
 
-      if (this.loggedIn) {
-        await this.login(user);
-        this.$router.push('/account/profile');
-      }
+      // if (this.loggedIn) {
+      //   await this.login(user);
+      //   this.$router.push('/account/profile');
+      // }
     },
 
     voltar() {
