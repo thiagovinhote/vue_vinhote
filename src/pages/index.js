@@ -5,7 +5,7 @@ import Profile from './Profile';
 import Experience from './Experience';
 import Login from './Login';
 import Register from './Register';
-import Account from './Account';
+import Account from './Account/Account';
 import Admin from './Admin';
 
 export {
