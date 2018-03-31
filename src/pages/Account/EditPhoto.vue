@@ -15,10 +15,10 @@
         </header>
         <section class="modal-card-body">
           <div class="field">
-            <!-- <img
+            <img
               class="image is-128x128"
-              :src="data.avatar"
-            /> -->
+              :src="value"
+            />
           </div>
           <div class="field">
             <div class="control">
@@ -55,11 +55,12 @@ export default {
     return {
       modalActive: false,
       data: {},
+      value: '',
     };
   },
 
   mounted() {
-    this.data.avatar = this.image;
+    this.value = this.image;
   },
 
   methods: {
@@ -69,11 +70,12 @@ export default {
 
     closeModal() {
       this.modalActive = false;
+      this.data = {}
+      this.value = '';
     },
 
     save() {
       this.$emit('save', this.data);
-      this.data = {};
       this.closeModal();
     },
 
@@ -86,7 +88,6 @@ export default {
       const data = new FormData();
       data.append('avatar', files[0]);
       this.data = data;
-
       this.createImage(files[0]);
     },
 
@@ -94,7 +95,7 @@ export default {
       const reader = new FileReader();
 
       reader.onload = (e) => {
-        this.data.avatar = e.target.result;
+        this.value = e.target.result;
       };
       reader.readAsDataURL(file);
     },

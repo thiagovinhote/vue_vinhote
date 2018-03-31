@@ -7,6 +7,7 @@
     />
 
     <Zone
+      v-parallax="0.02"
       color="is-default"
     >
       <div class="columns">
@@ -38,7 +39,7 @@
             </p>
           </div>
         </div>
-        <div class="column is-offset-1 has-text-centered">
+        <div class="column is-offset-1 has-text-centered" v-parallax="0.1">
           <div class="content">
             <img class="is-circle is-250x250" src="static/photo_2.png">
           </div>
@@ -46,7 +47,7 @@
       </div>
     </Zone>
 
-    <Zone color="is-light">
+    <Zone color="is-light" v-parallax="0.02">
       <div class="columns">
         <div class="column is-4">
           <h1 class="title">Minhas redes sociais</h1>
@@ -56,13 +57,13 @@
           <div class="columns is-multiline">
             <div
               v-for="(social, index) of socials"
-              class="column is-one-quarter"
+              class="column"
               :key="index"
             >
               <a
                 :href="social.link"
                 target="__blank"
-                class="button is-medium"
+                class="button"
                 :class="getColor(index)"
               >
                 <span class="icon">
@@ -74,6 +75,30 @@
           </div>
         </div>
       </div>
+      <hr>
+      <h1 class="title">Contato</h1>
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">
+              <span class="icon">
+                <i class="fas fa-inbox"></i>
+              </span> Email
+            </p>
+            <p class="subtitle">thiago.esw@gmail.com</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">
+              <span class="icon">
+                <i class="fas fa-phone"></i>
+              </span> Telefone
+            </p>
+            <p class="subtitle">(092) 99428-3875</p>
+          </div>
+        </div>
+      </nav>
     </Zone>
 
     <!-- <Zone
@@ -124,29 +149,6 @@
       </div>
     </Zone> -->
     <Zone color="is-info">
-      <h1 class="title">Contato</h1>
-      <nav class="level">
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">
-              <span class="icon">
-                <i class="fas fa-inbox"></i>
-              </span> Email
-            </p>
-            <p class="subtitle">thiago.esw@gmail.com</p>
-          </div>
-        </div>
-        <div class="level-item has-text-centered">
-          <div>
-            <p class="heading">
-              <span class="icon">
-                <i class="fas fa-phone"></i>
-              </span> Telefone
-            </p>
-            <p class="subtitle">(092) 99428-3875</p>
-          </div>
-        </div>
-      </nav>
     </Zone>
   </div>
 </template>

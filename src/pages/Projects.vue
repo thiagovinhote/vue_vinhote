@@ -7,8 +7,8 @@
     />
     <section class="section">
       <div class="container">
-        <h1 class="title">Públicos</h1>
-        <h2 class="subtitle">Os projetos dessa lista estão disponíveis no Github</h2>
+        <h1 class="title" v-parallax="0.02">Públicos</h1>
+        <h2 class="subtitle" v-parallax="0.02">Os projetos dessa lista estão disponíveis no Github</h2>
 
         <div class="columns">
           <div class="column">
@@ -30,7 +30,7 @@
           </div>
         </div>
 
-        <div v-if="!projectsEmpty" class="columns is-multiline">
+        <div v-if="!projectsEmpty" class="columns is-multiline" v-parallax="0.02">
           <div class="column is-half" v-for="(p, index) of project.results" :key="index">
             <MediaObject
               imagesize='is-64x64'

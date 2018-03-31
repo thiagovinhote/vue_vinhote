@@ -1,10 +1,10 @@
 <template>
   <article class="media">
-    <figure v-if="isimage" class="media-left">
-      <p class="image" :class="imagesize">
+    <div class="media-left">
+      <figure v-if="isimage" class="image circle responsive" :class="imagesize">
         <img :src="imageurl">
-      </p>
-    </figure>
+      </figure>
+    </div>
     <div class="media-content">
       <div class="content">
         <div>
@@ -26,7 +26,7 @@ export default {
   props: {
     imagesize: {
       type: String,
-      default: 'is-128x128',
+      default: 'is-square',
     },
     imageurl: {
       type: String,
@@ -39,4 +39,17 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+  .responsive {
+    overflow: hidden;
+  }
+
+  figure {
+    border-radius: 50%;
+  }
+
+  img {
+    min-height: 100%;
+  }
+
+</style>

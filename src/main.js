@@ -5,6 +5,7 @@ import Buefy from 'buefy';
 import linkify from 'vue-linkify';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import VueProgressBar from 'vue-progressbar';
+import VueParallaxJs from 'vue-parallax-js';
 import 'swiper/dist/css/swiper.css';
 import 'buefy/lib/buefy.css';
 import 'bulma-carousel/dist/bulma-carousel.min.css';
@@ -29,6 +30,7 @@ Vue.use(Buefy);
 Vue.directive('linkified', linkify);
 Vue.use(VueAwesomeSwiper);
 Vue.use(VueProgressBar, options);
+Vue.use(VueParallaxJs);
 
 /* eslint-disable no-new */
 export default new Vue({

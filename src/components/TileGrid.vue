@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="tile is-ancestor">
-      <div class="tile is-vertical">
+      <div class="tile is-vertical" v-parallax="0.02">
         <div v-for="(m, mIndex) of matrix" class="tile" :key="mIndex">
           <div v-for="(w, wIndex) of m" class="tile is-parent" :key="wIndex">
             <article class="tile is-child box">
@@ -55,6 +55,10 @@ export default {
     }),
     matrix() {
       return this.split();
+    },
+
+    emptyWork() {
+      return _.isEmpty(this.work);
     },
   },
 };

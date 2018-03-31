@@ -6,7 +6,7 @@
       subtitle="Veja onde já trabalhei e quais são minhas habilidades"
     />
 
-    <section class="section">
+    <section class="section" v-parallax="0.01">
       <div class="columns">
         <div class="column is-5" v-if="!emptyExperience">
           <h2 class="subtitle has-text-centered">Timeline</h2>
@@ -53,7 +53,7 @@
         </div>
       </div>
 
-      <div class="container">
+      <div class="container" v-if="!emptyCertificate" v-parallax="0.1">
         <h1 class="title">Certificados</h1>
         <div class="columns is-multiline">
           <div class="column is-4" v-for="(c, index) of certificate.results" :key="index">
@@ -137,6 +137,10 @@ export default {
 
     emptySkill() {
       return _.isEmpty(this.skill);
+    },
+
+    emptyCertificate() {
+      return _.isEmpty(this.certificate);
     },
   },
 };

@@ -7,13 +7,14 @@
       subtitle="Developer"
       position="has-text-centered"
     >
-      <div class="content">
+      <div class="content" v-parallax="0.05">
         <img class="is-circle is-250x250" src="static/photo_2.png">
       </div>
     </Hero>
 
     <Zone
       color="is-lght"
+      v-parallax="0.05"
     >
       <div class="content">
         <p class="title is-4 has-text-centered">Resumo</p>
@@ -36,6 +37,7 @@
 
     <Zone
       color="is-light"
+      v-parallax="0.05"
     >
       <div class="columns">
         <div class="column has-text-centered" v-for="(plataform, index) of plataforms" :key="index">
@@ -50,7 +52,11 @@
         <p class="subtitle is-7">Mas não sou fechado a só usar essas tecnologias</p>
       </div>
     </Zone>
-    <zone>
+    <zone
+      v-parallax="0.1"
+    >
+      <h1 class="title">Amigos</h1>
+      <h2 class="subtitle">Veja alguns dos meus amigos talentosos</h2>
       <Carousel />
     </zone>
   </div>
@@ -92,6 +98,14 @@ export default {
 
   .is-top-5 {
     margin-top: 10px;
+  }
+
+  .scale-enter-active, .scale-leave-active {
+    transition: opacity .5s;
+  }
+
+  .scale-enter, .scale-leave-to {
+    transform: scale(0);
   }
 
 </style>

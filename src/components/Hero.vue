@@ -1,7 +1,7 @@
 <template>
   <section class="hero" :class="[size, color]">
     <div class="hero-body">
-      <div class="container" :class="position">
+      <div class="container" v-parallax="0.05" :class="position">
         <slot />
         <h1 class="title is-4">{{ title }}</h1>
         <h2 class="subtitle">{{ subtitle }}</h2>

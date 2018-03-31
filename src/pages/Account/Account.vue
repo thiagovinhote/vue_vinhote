@@ -31,10 +31,21 @@
       <br>
       <div>
         <EditPhoto :image="currentUser.avatar" @save="save" />
-        <EditProfile @save="save"/>
+        <EditProfile @save="save" :user="currentUser"/>
       </div>
     </Zone>
-    <Zone size="is-large"/>
+    <section class="section">
+      <div class="container">
+        <h1 class="title is-4">Infomações pessoais</h1>
+
+        <p>
+          <strong>Ocupação</strong>: {{ currentUser.role }}
+        </p>
+        <p>
+          <strong>Biografia</strong>: {{ currentUser.bio }}
+        </p>
+      </div>
+    </section>
   </div>
 </template>
 

@@ -14,29 +14,57 @@
           <button class="delete" @click="closeModal()" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
+          <div class="columns">
+            <div class="column">
+              <div class="field">
+                <label class="label">Primeiro nome</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="Insira aqui seu primeiro nome"
+                    v-model="data.first_name"
+                  >
+                </div>
+                <!-- <p class="help">This is a help text</p> -->
+              </div>
+            </div>
+            <div class="column">
+              <div class="field">
+                <label class="label">Segundo nome</label>
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="Insira aqui seu segundo nome"
+                    v-model="data.last_name"
+                  >
+                </div>
+                <!-- <p class="help">This is a help text</p> -->
+              </div>
+            </div>
+          </div>
           <div class="field">
-            <label class="label">Primeiro nome</label>
+            <label class="label">Profissão</label>
             <div class="control">
               <input
                 class="input"
                 type="text"
-                placeholder="Insira aqui seu primeiro nome"
-                v-model="data.first_name"
+                placeholder="Insira aqui sua área de atuação"
+                v-model="data.role"
               >
             </div>
             <!-- <p class="help">This is a help text</p> -->
           </div>
           <div class="field">
-            <label class="label">Segundo nome</label>
+            <label class="label">Biografia</label>
             <div class="control">
-              <input
-                class="input"
-                type="text"
-                placeholder="Insira aqui seu segundo nome"
-                v-model="data.last_name"
-              >
+              <textarea
+                class="textarea"
+                placeholder="Uma breve descrição sua"
+                v-model="data.bio"
+              ></textarea>
             </div>
-            <!-- <p class="help">This is a help text</p> -->
           </div>
         </section>
         <footer class="modal-card-foot">
@@ -53,6 +81,17 @@
 
 <script>
 export default {
+  props: {
+    user: {
+      type: Object,
+    },
+  },
+
+  mounted() {
+    const { first_name, last_name, role, bio } = this.user;
+    this.data = { first_name, last_name, role, bio };
+  },
+
   data() {
     return {
       modalActive: false,
@@ -67,11 +106,11 @@ export default {
 
     closeModal() {
       this.modalActive = false;
+      this.data = {};
     },
 
     save(data) {
       this.$emit('save', data);
-      this.data = {};
       this.closeModal();
     },
   },
