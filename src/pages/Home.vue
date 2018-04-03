@@ -52,13 +52,13 @@
         <p class="subtitle is-7">Mas não sou fechado a só usar essas tecnologias</p>
       </div>
     </Zone>
-    <zone
+    <!-- <zone
       v-parallax="0.1"
     >
       <h1 class="title">Amigos</h1>
       <h2 class="subtitle">Veja alguns dos meus amigos talentosos</h2>
       <Carousel />
-    </zone>
+    </zone> -->
   </div>
 </template>
 
