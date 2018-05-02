@@ -7,7 +7,7 @@ import Login from './Login';
 import Register from './Register';
 import Account from './Account/Account';
 import Admin from './Admin';
-import { LandingPages, Portifolio } from './LandingPages/';
+import { LandingPages, Portfolio } from './LandingPages/';
 
 export {
   Home,
@@ -20,5 +20,5 @@ export {
   Account,
   Admin,
   LandingPages,
-  Portifolio,
+  Portfolio,
 };
