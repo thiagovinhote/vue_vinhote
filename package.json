@@ -11,7 +11,7 @@
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
     "build": "node build/build.js",
-    "deploy": "npm run build && git add . && git commit -sm 'Build' && git push"
+    "deploy": "npm run build && git add . && git commit -sm 'Build' && git push origin master"
   },
   "dependencies": {
     "apisauce": "^0.14.3",

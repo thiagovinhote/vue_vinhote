@@ -30,6 +30,9 @@ export default {
 </script>
 
 <style>
+  html {
+    display: flex;
+  }
   .is-circle {
     border-radius: 50%;
     object-fit: cover;
