@@ -8,7 +8,9 @@
     <section class="section">
       <div class="container">
         <h1 class="title" v-parallax="0.02">Públicos</h1>
-        <h2 class="subtitle" v-parallax="0.02">Os projetos dessa lista estão disponíveis no Github</h2>
+        <h2 class="subtitle" v-parallax="0.02">
+          Os projetos dessa lista estão disponíveis no Github
+        </h2>
 
         <div class="columns">
           <div class="column">

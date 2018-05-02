@@ -84,7 +84,7 @@ const actions = {
   },
 
   async UPDATE_USER(context, data) {
-    const userId = context.getters['GET_USER'].id;
+    const userId = context.getters.get('GET_USER').id;
     const response = await api.patch(`users/${userId}/`, data);
     context.commit('SET_USER', response.data);
   },

@@ -70,7 +70,7 @@ export default {
 
     closeModal() {
       this.modalActive = false;
-      this.data = {}
+      this.data = {};
       this.value = '';
     },
 

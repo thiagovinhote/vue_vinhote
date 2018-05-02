@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <NavBar />
+    <NavBar v-if="!isLanding" />
     <vue-progress-bar></vue-progress-bar>
     <transition name="fade" mode="out-in">
       <router-view/>
     </transition>
-    <Footer />
+    <Footer v-if="!isLanding" />
   </div>
 </template>
 
@@ -19,6 +19,12 @@ export default {
   components: {
     NavBar,
     Footer,
+  },
+
+  computed: {
+    isLanding() {
+      return this.$route.path.includes('landingpages');
+    },
   },
 };
 </script>
