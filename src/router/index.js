@@ -15,7 +15,7 @@ import {
   Account,
   Admin,
   LandingPages,
-  Portifolio,
+  Portfolio,
 } from '../pages';
 
 Vue.use(Router);
@@ -59,10 +59,10 @@ const mapRoutes = [
     title: 'LandingPages',
     children: [
       {
-        path: 'portifolio',
-        name: 'Portifolio',
-        component: Portifolio,
-        title: 'Portifolio',
+        path: 'portfolio',
+        name: 'Portfolio',
+        component: Portfolio,
+        title: 'Portfolio',
       },
     ],
   },

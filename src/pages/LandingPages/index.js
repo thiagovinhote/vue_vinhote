@@ -1,7 +1,7 @@
 import LandingPages from './LandingPages';
-import Portifolio from './pages/Portifolio';
+import Portfolio from './pages/Portfolio';
 
 export {
   LandingPages,
-  Portifolio,
+  Portfolio,
 };
