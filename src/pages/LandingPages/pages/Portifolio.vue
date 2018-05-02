@@ -307,8 +307,9 @@ hr {
 
 .img-responsive img {
   width:  100%;
-  height: 80%;
+  height: 100%;
   object-fit: contain;
+  object-position: bottom;
 }
 
 .content {
@@ -445,11 +446,12 @@ hr {
 .container .content-details {
   display: flex;
   flex: 1;
-  height: 80vh;
+  /* height: 80vh; */
+  height: 100%;
   width: 100%;
   /* background: red; */
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .container .content-details .tile {
@@ -505,7 +507,9 @@ hr {
 
 
 .container.hero {
-  height: 80vh;
+  /* height: 80vh; */
+  padding: 20px;
+  height: 100%;
   background: rgba(53, 38, 55, 0.5)
 }
 
@@ -566,5 +570,89 @@ hr {
   color: #AAAAAA;
   text-align: center;
   font-size: 12px;
+}
+
+@media (max-width: 320px) {
+  .hero .title {
+    font-size: 34px;
+  }
+
+  .hero .categories {
+    display: flex;
+    margin-top: 0px;
+    width: 290px;
+  }
+
+  .hero .categories > ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero .categories > ul > li {
+    padding: 5px 0 5px 0;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container .img-responsive {
+    height: 230px;
+  }
+
+  .container .img-responsive img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .container .content {
+    height: 100%;
+    padding: 0;
+  }
+
+  .container .content .paragraph {
+    margin: 0;
+    text-align: justify;
+  }
+
+  .container .content .paragraph.is-4 {
+    text-align: left;
+  }
+
+  .content-work .header .title {
+    font-size: 26px;
+    margin: 0;
+  }
+
+  .content-work .body .card {
+    margin: 1.5px;
+    width: 48%;
+    min-width: 0;
+  }
+
+  .hero.container {
+    height: 100%;
+    padding: 20px;
+  }
+
+  .container .content-details {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .container .content-details .tile {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .container .body .media-object {
+    margin: 1.5px;
+    width: 48%;
+  }
+
+  .container .body .media-object.is-large {
+    width: 98%;
+  }
 }
 </style>
