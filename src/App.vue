@@ -33,6 +33,12 @@ export default {
   html {
     display: flex;
   }
+
+  body {
+    flex: 1;
+    width: 100%;
+  }
+
   .is-circle {
     border-radius: 50%;
     object-fit: cover;
