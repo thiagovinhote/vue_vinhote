@@ -4,7 +4,7 @@ import app from '../main';
 const api = create({
   baseURL:
     process.env.NODE_ENV === 'production'
-      ? 'https://apivinhote.herokuapp.com/api/v1/'
+      ? 'https://api-vinhote.dev.devbox.today/api/v1/'
       : 'http://localhost:8000/api/v1/',
 });
 
