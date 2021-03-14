@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "apisauce": "^0.14.3",
-    "buefy": "^0.6.3",
+    "buefy": "^0.7.2",
     "bulma-carousel": "^0.3.6",
     "bulma-timeline": "^2.0.0",
     "express": "^4.16.2",
